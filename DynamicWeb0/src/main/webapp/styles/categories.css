@@ -1,0 +1,11 @@
+* {
+	padding:0;
+	margin:0;
+	box-sizing: border-box;
+}
+.main-container {
+	margin: auto;
+	margin-top: 30px;
+	max-width: 64%;
+
+}

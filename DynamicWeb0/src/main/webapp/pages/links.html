@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Links</title>
+	<link rel="stylesheet" href="../styles/header.css" />
+	<link rel="stylesheet" href="../styles/mainContainer.css" />
+	<link rel="stylesheet" href="../styles/buttons.css" />
+	<link rel="stylesheet" href="../styles/links.css" />
+</head>
+
+<body>
+	<div class="header">
+		<div class="header-top">
+			<div class="htleft">
+				<a href="#"> <img src="../img/logo.svg" />
+				</a>
+			</div>
+			<div class="htright">
+				<ul>
+					<li><a id="user" href="#">Hi FName LName</a></li>
+					<li>|</li>
+					<li><a id="logout" href="#">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu-container">
+			<div class="menu">
+				<div class="menu-item">
+					<a href="#">Dashboard</a>
+				</div>
+				<div class="menu-item">
+					<a href="TestServlet">Test</a>
+				</div>
+				<div class="menu-item menu-item-active">
+					<a href="#">Link</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">Group</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">Help</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">My Account</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main-container">
+		<div class="table">
+			<div class="row utilities">
+				<div class="col-6">
+					<div class="hi">
+						<input class="input" type="search" name="search" placeholder="Search Link Name" />
+					</div>
+				</div>
+				<div class="col-4 new-btn-cnt"><a class="button button-orange" href="">New
+						Link</a>
+				</div>
+			</div>
+			<div class="">
+				<div class="row-content">
+					<div class="row accordion" onclick="rowClicked(this)">
+						<div class="col-6 name-section">LinkName</div>
+						<div class="col-4 hidden name-actions">
+							<a class="link" href="#">Statistics</a>
+						</div>
+					</div>
+					<div class="accordion-content">
+						<div class="row"><span class="little">Assigned tests</span></div>
+						<ul class="">
+							<li class="row sub-row group-list-row">
+								<div class="col-6 name-section tab-20"><span>TestName</span></div>
+								<div class="col-4 name-actions">
+									<div class="action"><a class="link" href="#">Settings</a></div><span
+										class="status-info action">Status</span>
+									<div class="action"><a class="button button-green results-btn" href="#">Results</a>
+									</div>
+								</div>
+							</li>
+							<li class="row sub-row group-list-row">
+								<div class="col-6 name-section tab-20"><span>TestName</span></div>
+								<div class="col-4 name-actions">
+									<div class="action"><a class="link" href="#">Settings</a></div><span
+										class="status-info action">Status</span>
+									<div class="action"><a class="button button-green results-btn" href="#">Results</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row-content">
+				<div class="row accordion" onclick="rowClicked(this)">
+					<div class="col-6 name-section">LinkName</div>
+					<div class="col-4 hidden name-actions">
+						<a class="link" href="#">Statistics</a>
+					</div>
+				</div>
+				<div class="accordion-content">
+					<div class="row"><span class="little">Assigned tests</span></div>
+					<ul class="">
+						<li class="row sub-row group-list-row">
+							<div class="col-6 name-section tab-20"><span>TestName</span></div>
+							<div class="col-4 name-actions">
+								<div class="action"><a class="link" href="#">Settings</a></div><span
+									class="status-info action">Status</span>
+								<div class="action"><a class="button button-green results-btn" href="#">Results</a>
+								</div>
+							</div>
+						</li>
+						<li class="row sub-row group-list-row">
+							<div class="col-6 name-section tab-20"><span>TestName</span></div>
+							<div class="col-4 name-actions">
+								<div class="action"><a class="link" href="#">Settings</a></div><span
+									class="status-info action">Status</span>
+								<div class="action"><a class="button button-green results-btn" href="#">Results</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+		<script>
+			function rowClicked(item) {
+				console.log('rowClicked ');
+				let actions = item.children[1].classList.toggle('hidden');
+				let content = item.nextElementSibling;
+				content.classList.toggle('opened');
+			}
+		</script>
+</body>
+
+</html>

@@ -1,0 +1,336 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: #f6f6f8;
+}
+
+.pointable {
+	cursor: pointer;
+}
+
+.hidden {
+	display: none;
+}
+
+.main-container {
+	margin: auto;
+	margin-top: 30px;
+	max-width: 64%;
+
+}
+
+.main-content {
+
+	margin: auto;
+	background-color: #f6f6f8;
+	height: 100%;
+}
+
+.test-name {
+	cursor: pointer;
+	padding: 32px;
+}
+
+.test-name:hover {
+	background-color: #e4f1fb;
+}
+
+.action-buttons {
+	padding: 32px;
+}
+
+.buttons-left {
+
+	display: inline-block;
+}
+
+.buttons-right {
+	float: right;
+	display: inline-block
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.width60 {
+	width: 60%;
+}
+
+.width40 {
+	width: 40%;
+}
+
+.btn {
+	border: none;
+	color: #6a7680;
+	background-color: white;
+	cursor: pointer;
+	padding: 6px 10px;
+}
+
+.btn:hover {
+	border-radius: 8px;
+	;
+	background-color: #e4f1fb;
+}
+
+.header-top {
+	display: flex;
+	padding: 14px 0px;
+	max-width: 64%;
+	margin: auto;
+	/*border: 1px solid red;*/
+}
+
+.menu-container {
+	padding: 14px 0px;
+	background-color: #2e3133;
+}
+
+.menu {
+	max-width: 64%;
+	margin: auto;
+}
+
+.menu-item {
+	color: white;
+	font-family: Inter, sans-serif;
+	font-weight: 400;
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 4px;
+}
+
+.menu-item:hover {
+	background-color: white;
+	color: #2e3133;
+}
+
+.htleft {
+	/*border: 1px solid red;*/
+	width: 50%;
+}
+
+.htright {
+	white-space: normal;
+	/*border: 1px solid red;*/
+	width: 50%;
+}
+
+.htright ul {
+	display: flex;
+	justify-content: flex-end;
+	/*flex-direction: row;*/
+	list-style-type: none;
+
+}
+
+.htright ul li {
+	padding-right: 10px;
+}
+
+.htright ul li a {
+	text-decoration: none;
+	color: #4d4d4d;
+}
+
+.htright ul li a:hover {
+	text-decoration: underline;
+}
+
+.input-field,
+.selection {
+	padding: 8px 16px;
+	border: 1px solid #dce1e5;
+	border-radius: 4px;
+}
+
+.col {
+	display: inline-block;
+}
+
+.col30 {
+	width: 29%;
+}
+
+.col70 {
+	width: 69%;
+}
+
+.col20 {
+	width: 19%;
+}
+
+.clear20 {
+	margin-right: 19%;
+}
+
+.update-tab {
+	padding: 25px;
+}
+
+.row {
+	margin-bottom: 20px;
+}
+
+.empty-space20 {
+	width: 19%;
+
+}
+
+.btn-row {
+	padding: 20px 0px;
+}
+
+.action-btn {
+	padding: 8px 16px;
+	cursor: pointer;
+	border: none;
+	border-radius: 4px;
+}
+
+.update-btn {
+	background-color: #e02e0f;
+	color: white;
+}
+
+.update-btn:hover {
+	background-color: #fb3311
+}
+
+.cancel-btn {
+	background-color: white;
+	border: 1px solid #dce1e5;
+	border-radius: 4px;
+}
+
+.cancel-btn:hover {
+	background-color: #edf0f2;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.card {
+	font-family: Inter, sans-serif;
+	border: 1px solid rgba(0, 40, 77, 0.2);
+	border-radius: 8px;
+	background-color: #fff;
+}
+
+.test-action {
+	margin-bottom: 16px;
+}
+
+.test-intro {
+	padding: 32px;
+}
+
+.test-intro a {
+	color: #fb3311;
+}
+
+.test-intro-header {
+	margin-bottom: 8px;
+}
+
+.questions-info {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 45px;
+	padding-bottom: 8px;
+}
+
+#questions-count-info {
+	color: black;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+#points-info {
+	color: #6a7680;
+	font-size: 16px;
+}
+
+#bank-info {
+	color: #6a7680;
+	font-size: 16px;
+}
+
+.tabs-container {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	;
+}
+
+.tabs {
+	display: flex;
+	background-color: #e8eaee;
+}
+
+.tab {
+	font-weight: 600;
+	font-size: 14px;
+	font-family: Inter, sans-serif;
+	cursor: pointer;
+	display: inline-block;
+	padding: 18px 24px;
+}
+
+.active-tab {
+	background-color: white;
+	color: #fb3311;
+	border-top: 2px solid #fb3311;
+}
+
+.not-active-tab {
+	color: #6a7680;
+	background-color: #e8eaee;
+}
+
+.not-active-tab:hover {
+	background-color: #f6f6f8;
+}
+
+.assign-tab-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 310px;
+}
+
+.test-tab-content {}
+
+.test-tab-content-actions {
+	display: flex;
+	justify-content: flex-end;
+	padding: 16px 24px;
+}
+
+.test-tab-noquestions-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 310px;
+	margin-top: 14px;
+}
+
+.add-question-btn {
+	color: white;
+	background-color: #0896e6;
+	font-weight: 600;
+}
+
+.empty-row {
+	height: 50px;
+}
+.empty-row-grey {
+	background-color: #f6f6f8;
+}

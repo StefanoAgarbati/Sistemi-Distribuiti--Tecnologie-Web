@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Groups results</title>
+	<link rel="stylesheet" href="../styles/header.css" />
+	<link rel="stylesheet" href="../styles/mainContainer.css" />
+	<link rel="stylesheet" href="../styles/buttons.css" />
+	<link rel="stylesheet" href="../styles/base.css" />
+	<style>
+		.columns-names {
+			padding-left: 24px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header">
+		<div class="header-top">
+			<div class="htleft">
+				<a href="#"> <img src="../img/logo.svg" />
+				</a>
+			</div>
+			<div class="htright">
+				<ul>
+					<li><a id="user" href="#">Hi FName LName</a></li>
+					<li>|</li>
+					<li><a id="logout" href="#">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu-container">
+			<div class="menu">
+				<div class="menu-item">
+					<a href="#">Dashboard</a>
+				</div>
+				<div class="menu-item">
+					<a href="TestServlet">Test</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">Link</a>
+				</div>
+				<div class="menu-item menu-item-active">
+					<a href="#">Group</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">Help</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">My Account</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main-container">
+		<h2 class="margin-bottom-50">Group averages from all saved results</h2>
+		<div class="table">
+			<div class="row table-row columns-names">
+				<div class="col-6"><span class="">Group name</span></div>
+				<div class="col-2"><span>Avg. Percentage</span></div>
+				<div class="col-1"><span>Attempts</span></div>
+				<div class="col-1"><span></span></div>
+			</div>
+			<div class="row table-row">
+				<div class="col-6"><span>Group 1</span></div>
+				<div class="col-2"><span>99%</span></div>
+				<div class="col-1"><span>4</span></div>
+				<div class="more-btn col-1"><a class="button button-blue" href="#">More</a></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

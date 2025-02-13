@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="registration.css" />
+<title>Registration</title>
+</head>
+<body>
+	<div>
+		<div class="header">
+			<div class="hleft">
+				<a href=""><img src="../img/logo.svg" /></a>
+			</div>
+			<div class="hright">
+				<form method="post" action="Login">
+					<input class="input" type="text" name="username" placeholder="Username" />
+					<input class="input" type="text" name="password" placeholder="Password" />
+					<button class="btn" type="submit" value="login">Login</button>
+				</form>
+			</div>
+		</div>
+		<div class="content">
+			<div class="container">
+				<h1 class="margin-bottom registration-title">Administration registration - Education</h1>
+				<div class="margin-bottom bordered-box bordered-box-left text">
+					<span>Learners: Have you been told to register an account to take an exam? </span> <a class="link underlined"href="#">Go here!</a>
+				</div>
+				<div class="margin-bottom registration-info text">
+					<h3 class="marbot16">Before you register please note</h3>
+					<p class="marbot16">Free accounts can only save and review test results taken by pre-registered users in groups.</p>
+					<p class="marbot16">You can <strong>upgrade</strong> your account to save and review test results taken via links.</p>
+					<p class="marbot16">Learn the difference between giving tests via groups or links.</p>
+				</div>
+			</div>
+			<div class="container form-container">
+				<form class="form" id="registration-form">
+					<input type="hidden" name="role" value="educator" />
+					<div class="row">
+						<div class="row-item">
+							<label class="form-label" for="firstname">First name *</label>
+							<input class="form-input" type="text" id="firstname" name="firstname" />
+						</div>
+						<div class="row-item">
+							<label class="form-label" for="lastname">Last name *</label>
+							<input class="form-input" type="text" id="lastname" name="lastname" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="row-item">
+							<label class="form-label" for="username">Username *</label>
+							<input class="form-input" type="text" id="username" name="username" />
+						</div>
+						<div class="row-item">
+							<label class="form-label" for="password">Password *</label>
+							<input class="form-input" type="text" id="password" name="password" />
+						</div>
+					</div>
+					<div class="empty-row"></div>
+					<div class="row">
+						<button class="btn btn-orange"type="button" onclick="submitRegistrationData()">Register</button>
+						<div id="error-msg" class="error-msg hidden">
+							<p id="error-msg-text">Error message</p>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="footer">
+			<div class="footer-container">
+				<ul class="list">
+					<li><a href="">Home</a></li>
+					<li><a href="">About ClassMarker</a></li>
+					<li><a href="">Register</a></li>
+					<li><a href="">Contact Us</a></li>
+					<li><a href="">Terms</a> / <a href="">Privacy</a></li>
+					<li><a href="">Security</a></li>
+				</ul>
+				<ul class="list">
+					<li><a href="">User Manual</a></li>
+					<li><a href="">Quiz Language Support</a></li>
+					<li><a href="">Quiz Maker API Information</a></li>
+					<li><a href="">Partners </a>/ <a>Clients</a></li>
+					<li><a href="">Blog</ahref=""></li>
+					<li><a href="">Sitemap</a></li>
+				</ul>
+				<div></div>
+			</div>
+		</div>
+		</div>
+	<script src="registration.js"></script>
+</body>
+</html>

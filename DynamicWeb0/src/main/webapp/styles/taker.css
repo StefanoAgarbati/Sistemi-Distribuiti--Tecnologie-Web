@@ -1,0 +1,59 @@
+.header-text {
+	font-size: 20px;
+	font-weight: 600;
+	padding-top: 40px;
+	padding-bottom: 8px;
+	margin-bottom: 60px;
+}
+.header-text-sup {
+	font-size: 14px;
+	color: #6A7680;
+}
+.content-sections {
+	display: flex;
+	justify-content: space-between;
+}
+
+.header-row {
+	background-color: #e4f1fb;
+}
+
+.left-section {
+	width: 60%;
+}
+
+.right-section {
+	width: 30%;
+}
+
+.student-message {
+	color: #6a7680;
+	line-height: 1.5em;
+	font-size: 14px;
+}
+
+.row-pad {
+	padding: 20px 26px;
+}
+.data-row {
+	display:flex;
+	font-size: 14px;
+}
+.data-row,
+.list-row,
+.header-row {
+	padding: 20px 26px;
+	border-bottom: 1px solid #dddddd;
+}
+
+.list-row:hover {
+	cursor: pointer;
+}
+
+.left-section a {
+	color: #000000;
+	text-decoration: none;
+	display: block;
+	padding: 20px 26px;
+	border-bottom: 1px solid #dddddd;
+}

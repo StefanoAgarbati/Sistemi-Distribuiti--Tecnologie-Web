@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding:0;
+	}
+	.hidden {
+		display: none;
+	}
+	.test-item {
+		font-size: 22px;
+		list-style-type: none;
+		cursor: pointer;
+		padding: 10px 15px;
+		border-bottom: 1px solid black;
+	}
+	.test-list {
+		border:1px solid black;
+		border-radius: 8px;
+	}
+	body {
+		width: 70%;
+		margin: auto;
+	}
+	.last-item {
+		border-bottom: none;
+	}
+	.accordion-fold {
+		transition: 1s;
+	}
+</style>
+</head>
+<body>
+	<div class="accordion">
+		<ul class="test-list">
+			<li class="test-item">
+				<div><span>Test 1</span></div>
+				<div class="accordion-fold hidden">Test details</div>
+			</li>
+			<li class="test-item last-item">
+				<div><span>Test 2</span></div>
+				<div class="accordion-fold hidden">Test details</div>
+			</li>
+		</ul>
+	</div>
+	<script>
+		let items = document.getElementsByClassName("test-item");
+		for(let i = 0; i < items.length; i++) {
+			items[i].addEventListener('click', function() {
+				handleClick(items[i]);
+			});
+		}
+		function handleClick(item) {
+			let foldEl = item.lastElementChild;
+			foldEl.classList.toggle('hidden');
+		}
+	</script>
+</body>
+</html>

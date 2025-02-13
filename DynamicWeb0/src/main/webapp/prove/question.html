@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title></title>
+</head>
+<style>
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	.question-card {
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		border-radius: 8px;
+		background-color: white;
+		color: black;
+		font-family: Inter, sans-serif;
+		margin: 20px 0;
+	}
+
+	.question-card-item {
+		padding: 24px 32px;
+	}
+
+	.question-card-header {
+		display: flex;
+		border-bottom: 1px solid #dce1e5;
+	}
+
+	.qcard-header-info {
+		color: #6a7680;
+		font-size: 14px;
+	}
+
+	.qcard-header-cat {
+		width: 55%;
+	}
+
+	.qcard-header-points {
+		width: 10%;
+	}
+
+	.qcard-header-cat,
+	.qcard-header-points {
+		color: #6a7680;
+		font-size: 14px;
+		text-align: right;
+	}
+
+	.qcard-header-item {
+		display: inline-block;
+	}
+
+	.qcard-header-name {
+		font-weight: 600;
+		width: 35%;
+	}
+
+	.qcard-actions {
+		border-top: 1px solid #dce1e5;
+		padding-top: 24px;
+		margin-bottom: 20px;
+	}
+
+	.qcard-action {
+		text-decoration: none;
+		color: #fb3311;
+		cursor: pointer;
+		font-size: 12px;
+		font-weight: 400;
+		margin-right: 24px;
+	}
+
+	.qcard-action:hover {
+		text-decoration: underline;
+	}
+
+	.question-card-footer {
+		opacity: 0.4;
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	.question-card:hover .question-card-footer {
+		opacity: 1;
+	}
+
+	.button {
+		border: none;
+		border-radius: 4px;
+		color: white;
+		background-color: #fb3311;
+		font-weight: 600;
+		font-size: 12px;
+		font-family: inherit;
+		cursor: pointer;
+		padding: 8px 12px;
+		transition: background-color 0.4s;
+	}
+
+	.button-orange {
+		background-color: #fb3311;
+	}
+
+	.button-grey {
+		background-color: #edf0f2;
+		color: black;
+	}
+
+	.button-orange:hover {
+		background-color: rgb(251, 51, 17, 0.8);
+	}
+
+	.button-grey:hover {
+		background-color: #e7e8eb;
+	}
+
+	.strong-text {
+		font-weight: 600;
+	}
+
+	.delete-buttons {
+		padding: 20px 0;
+	}
+
+	.delete-button,
+	.cancel-button {
+		text-decoration: none;
+	}
+
+	.qcard-footer-delete {
+		margin-left: 20px;
+		border: 1px solid #d0d2d2;
+		border-radius: 4px;
+		background-color: #f7f7f7;
+		padding: 20px 0;
+		width: 70%
+	}
+
+	.qcard-footer-delete-item {
+		margin: 10px 20px;
+	}
+	.question-info-answers {
+		width:70%;
+	}
+	.question-text {
+		padding: 24px 0;
+	}
+	.answer-letter {
+		width: 5%;
+		font-weight: 600;
+		margin-right: 10px;
+	}
+	.answer-text {
+		width: 80%;
+	}
+	.answer {
+		display: flex;
+		width: 70%;
+		padding: 20px 15px;
+	}
+	.correct-icon {
+		width: 15%;
+	}
+	.correct-icon-img {
+		float: right;
+	}
+	.correct-answer{ 
+		background-color:  #f7f7f7;
+	}
+	.question-info-answer-table {
+		width: 100%;
+	}
+	.used-in-header{
+		display: flex;
+		justify-content: space-between;
+	}
+</style>
+
+<body>
+	<div class="question-card">
+		<div class="question-card-item question-card-header">
+			<span class="qcard-header-name">Question 1</span>
+			<span class="qcard-header-cat">Category</span>
+			<span class="qcard-header-points">4Pts</span>
+		</div>
+		<div class="question-info question-card-item">
+			<div class="question-text">Question Text</div>
+			<div class="question-info-answers hidden">
+				<table class="question-info-answer-table">
+					<tr class="answer correct-answer">
+						<td class="answer-letter">A.</td>
+						<td class="answer-text">Response</td>
+						<td class="correct-icon"><img class="correct-icon-img" src="../img/correct.svg" /></td>
+					</tr>
+					<tr class="answer">
+						<td class="answer-letter">A.</td>
+						<td class="answer-text">Response</td>
+						<td class="correct-icon hidden"><img class="correct-icon-img" src="../img/correct.svg" /></td>
+					</tr>
+					<tr class="answer">
+						<td class="answer-letter">A.</td>
+						<td class="answer-text">Response</td>
+						<td class="correct-icon hidden"><img class="correct-icon-img" src="../img/correct.svg" /></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="question-card-footer question-card-item">
+			<div class="qcard-actions">
+				<a class="qcard-action" href="javascript:void(0)" onclick="showHideAnswers()">Answers</a>
+				<a class="qcard-action" href="">Edit</a>
+				<a class="qcard-action" href="javascript:void(0)" onclick="showDelete()">Delete</a>
+				<a class="qcard-action" href="javascript:void(0)">Used In</a>
+			</div>
+			<div class="qcard-footer-delete hidden">
+				<p class="strong-text qcard-footer-delete-item">Are you sure you want to permanently delete this
+					Question?</p>
+				<p class="qcard-footer-delete-item">You will NOT be able to restore this Question once deleted</p>
+				<div class="delete-buttons qcard-footer-delete-item">
+					<a class="button button-orange delete-button" href="">Permanently Delete Question</a>
+					<a class="button button-grey cancel-button" href="javascript:void(0)" onclick="hideDelete()">Cancel</a>
+				</div>
+			</div>
+			<div class="">
+				<div class="used-in-header no-test-msg">
+					<p>No Tests are currently using this Question.</p>
+					<img class="close" src="../img/close.svg"/>
+				</div>
+				<div class="some-test-msg">
+					<div class="used-in-header"><p>Tests currently using this Question: <a href="">close</a></p></div>
+					<p>1) <a href="">Test</a></p>
+					<p>1) <a href="">Test</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<script>
+		
+	</script>
+</body>
+
+</html>

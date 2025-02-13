@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" href="provat.css" />
+	<title>Provat</title>
+</head>
+
+<body>
+	<div class="main-content">
+		<div class="header">
+			<div class="header-top">
+				<div class="htleft">
+					<a href="#">
+						<img src="../img/logo.svg" />
+					</a>
+				</div>
+				<div class="htright">
+					<ul>
+						<li><a id="user" href="#">Hi username</a></li>
+						<li>|</li>
+						<li><a id="logout" href="#">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="menu-container">
+				<div class="menu">
+					<div class="menu-item">Dashboard</div>
+					<div class="menu-item"><a href="#">Test</a></div>
+					<div class="menu-item"><a href="#">Link</a></div>
+					<div class="menu-item"><a href="#">Group</a></div>
+					<div class="menu-item"><a href="#">Help</a></div>
+					<div class="menu-item"><a href="#">My Account</a></div>
+				</div>
+			</div>
+		</div>
+		<div class="main-container">
+			<div class="test-action card">
+				<div class="update-test-header">
+					<div id="testName" class="test-name" onclick="showHideTab()">
+						<h2>Test name</h2>
+					</div>
+					<div id="updateTab" class="update-tab hidden">
+						<form action="" method="post">
+							<div class="row">
+								<div class="col col20">
+									<label for="formTestName">Test name</label>
+								</div>
+								<div class="col col70">
+									<input class="input-field" id="formTestName" type="text" name="testName" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col col20">
+									<label>Category</label>
+								</div>
+								<div class="col col70">
+									<select class="selection" name="category">
+										<option value="generic">Generic</option>
+										<option value="pincopallo">Pinco pallo</option>
+									</select>
+								</div>
+							</div>
+							<div class="btn-row row">
+								<div class="col col20"></div>
+								<div class="col col70">
+									<button class="action-btn update-btn" type="submit">Update</button>
+									<button class="action-btn cancel-btn" type="button"
+										onclick="showHideTab()">Cancel</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="action-buttons">
+					<div class="buttons-left">
+						<button class="btn">Duplicate</button>
+						<button class="btn">Print</button>
+						<button class="btn">Delete</button>
+					</div>
+					<div class="buttons-right">
+						<button class="btn">Preview</button>
+						<button class="btn">Assign Test</button>
+					</div>
+				</div>
+			</div>
+			<div class="test-intro card">
+				<h3 class="test-intro-header">Test Introduction</h3>
+				<a id="add-intro" href="#">Add Introduction</a>
+			</div>
+			<div class="questions-info">
+				<div>
+					<span id="questions-count-info">2 Questions</span>
+					<span id="points-info">(5 Points )</span>
+				</div>
+				<div>
+					<span id="bank-info">Question Bank: <span id="bank-questions">8</span> Questions</span>
+				</div>
+			</div>
+			<div class="tabs-container card">
+				<div class="tabs">
+					<a class="tab active-tab" onclick="changeTab(this,'test-tab-content')">Test questions</a>
+					<a class="tab not-active-tab" onclick="changeTab(this,'assign-tab-content')">Assigned Tests</a>
+				</div>
+				<div id="test" class="tab-content test-tab-content">
+					<div class="test-tab-content-actions"><button id="add-question-btn"
+							class="action-btn add-question-btn">Add Question</button>
+					</div>
+					<div class="empty-row empty-row-grey"></div>
+					<div class="card">
+						<div class="test-tab-noquestions-content">
+							<p>No Questions are in your Test yet.</p>
+							<p>Add your first Question!</p>
+						</div>
+					</div>
+				</div>
+				<div id="assign" class="tab-content hidden">
+					<div class="assign-tab-content">
+						<p>You need to Assign this Test to a Group or Link before it can be taken.</p>
+					</div>
+				</div>
+
+			</div>
+			<div class="empty-row"></div>
+		</div>
+	</div>
+	<script>
+		function showHideTab() {
+			let tabContainer = document.getElementById('testName');
+			let updateTab = document.getElementById('updateTab');
+			tabContainer.classList.toggle('hidden');
+			updateTab.classList.toggle('hidden');
+		}
+		function changeTab(selected, name) {
+			let tabs = document.querySelectorAll('.tabs .tab');
+			tabs.forEach(tab => {
+				tab.classList.add('not-active-tab');
+				tab.classList.remove('active-tab');
+			});
+			selected.classList.remove('not-active-tab');
+			selected.classList.add('active-tab');
+
+			let contents = document.querySelectorAll('.tabs-container .tab-content');
+			console.log('contents count ' + contents.lenght);
+			for (let i = 0; i < contents.length; i++) {
+				console.log('contents: ' + contents[i]);
+				contents[i].classList.toggle('hidden');
+			}
+			console.log('ma che rrazzo');
+
+		}
+	</script>
+</body>
+
+</html>

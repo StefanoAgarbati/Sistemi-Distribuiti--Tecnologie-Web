@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Result</title>
+	<link rel="stylesheet" href="../styles/header.css" />
+	<link rel="stylesheet" href="../styles/mainContainer.css" />
+	<link rel="stylesheet" href="../styles/buttons.css" />
+	<link rel="stylesheet" href="../styles/base.css" />
+	<style>
+		.member-data-footer,
+		.members-tab-content,
+		.member-data,
+		.member-code-area,
+		.member-access,
+		.test-name-section {
+			display: flex;
+		}
+
+		.member-access,
+		.members-tab-content {
+			align-items: center;
+		}
+
+		.members-tab-content {
+			flex-direction: column;
+			justify-content: center;
+			height: 300px;
+		}
+
+		.members-tab-content p {
+			margin-bottom: 20px;
+		}
+
+		.simple-row {
+			padding: 18px 24px;
+			border-bottom: 1px solid #dce1e5;
+		}
+
+		.member-data,
+		.member-data-footer,
+		.member-code-area,
+		.test-name-section {
+			justify-content: space-between;
+		}
+
+		.member-data-list {
+			list-style-type: disc;
+		}
+
+		.member-data-list li {
+			padding: 3px 0;
+		}
+
+		.member-data-left {
+			min-width: 90px;
+		}
+
+		.member-data-container {
+			padding: 20px 40px 10px 70px;
+		}
+
+		.member-data-footer {
+			padding: 16px 0;
+		}
+
+		.margin-right-5,
+		.member-access label {
+			margin-right: 5px;
+		}
+
+		.background-green,
+		.test-status-badge {
+			background-color: #3cb27a;
+		}
+
+		.text-white,
+		.test-status-badge {
+			color: #FFFFFF;
+		}
+
+		.borders-rounded,
+		.test-status-badge {
+			border-radius: 100px;
+		}
+
+		.test-status-badge {
+			padding: 8px 25px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header">
+		<div class="header-top">
+			<div class="htleft">
+				<a href="#"> <img src="../img/logo.svg" />
+				</a>
+			</div>
+			<div class="htright">
+				<ul>
+					<li><a id="user" href="#">Hi FName LName</a></li>
+					<li>|</li>
+					<li><a id="logout" href="#">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu-container">
+			<div class="menu">
+				<div class="menu-item">
+					<a href="#">Dashboard</a>
+				</div>
+				<div class="menu-item">
+					<a href="TestServlet">Test</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">Link</a>
+				</div>
+				<div class="menu-item menu-item-active">
+					<a href="#">Group</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">Help</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">My Account</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main-container">
+		<div class="card">
+			<div class="card-header">
+				<div class="test-name-section">
+					<a class="test-name" href="#">TestName</a>
+					<div class="test-status-badge"><span>Available</span></div>
+				</div>
+				<a class="group-name">GroupName</a>
+			</div>
+			<div class="menu-options">
+
+			</div>
+		</div>
+		<div class="card no-padding">
+			<div class="table-row tab-btn-container">
+				<a id="results-tab-btn" class="tab-btn tab-btn-on" href="#" onclick="showTab(this, 'results-tab-content')">Results</a>
+				<a id="tests-tab-btn" class="tab-btn tab-btn-off" href="#" onclick="showTab(this, 'settings-tab-content')">Settings</a>
+				<a id="results-tab-btn" class="tab-btn tab-btn-off" href="#" onclick="showTab(this, 'statistics-tab-content')">Statistics</a>
+			</div>
+			<div id="results-tab-content" class="tab-content">
+				<div>
+					<div class="table">
+						<div class="row columns-names">
+							<div class="col-25"><span class="">Name</span></div>
+							<div class="col-2"><span>Percentage</span></div>
+							<div class="col-15"><span>Score</span></div>
+							<div class="col-15"><span>Duration</span></div>
+							<div class="col-2"><span>Date</span></div>
+						</div>
+						<div class="">
+							<div class="">
+								<div class="row-content">
+									<div class="row accordion justify-start">
+										<div class="col-25">
+											<a class="medium link bold" href="#">StudentName</a>
+										</div>
+										<div class="col-2"><span>50%</span></div>
+										<div class="col-15"><span>10/20</span></div>
+										<div class="col-15"><span>00:23:41</span></div>
+										<div class="col-2"><span>Wed 22 May '24 12:41pm</span></div>
+										<div class="answers-btn-section align-center col-3"><a class="button button-green">Answers</a>
+											<div class="flexy align-center"><img class="space-left-right-10" src="../img/prev-results.png"
+											onclick="prevResults(this)" /></div>
+										</div>
+
+									</div>
+									<div class="accordion-content">
+										<div class="previous-results-section">
+											<div class="row previous-result-data">
+												<div class="col-25">
+													<a class="medium link bold" href="#">1st</a>
+												</div>
+												<div class="col-2"><span>50%</span></div>
+												<div class="col-15"><span>10/20</span></div>
+												<div class="col-15"><span>00:23:41</span></div>
+												<div class="col-2"><span>Wed 22 May '24 12:41pm</span></div>
+												<div class="col-3"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="settings-tab-content" class="tab-content hidden">
+				<div class="simple-row"></div>
+				<div class="simple-row"><span class="explication">Settings Content Tab</span></div>
+			</div>
+			<div id="statistics-tab-content" class="tab-content hidden">
+				<div class="simple-row"></div>
+				<div class="simple-row"><span class="explication">Statistics Content Tab</span></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		let selfRegistrationTab = document.getElementById('self-registration');
+		let manualRegistrationTab = document.getElementById('manual-registration');
+		let membersTabButton = document.getElementById('members-tab-btn');
+		let testsTabButton = document.getElementById('tests-tab-btn');
+		let membersTabContent = document.getElementById('members-tab-content');
+		let testsTabContent = document.getElementById('tests-tab-content');
+
+		function prevResults(el) {
+			el.parentElement.parentElement.parentElement.nextElementSibling.classList.toggle('opened');
+		}
+		function showTab(aTab, tabContentName) {
+			let tabs = document.querySelectorAll('.tab-btn-container .tab-btn');
+			console.log(tabs);
+			
+			allTabsOff();
+			tabOn(aTab);
+			hideAllTabContent();
+			showTabContent(tabContentName);
+			
+			function allTabsOff() {
+				tabs.forEach(tab => {
+				tab.classList.remove('tab-btn-on');
+				tab.classList.add('tab-btn-off');
+				});
+			}
+			function tabOn(aTab) {
+				aTab.classList.remove('tab-btn-off');
+				aTab.classList.add('tab-btn-on');
+			}
+			function hideAllTabContent() {
+				let contents = document.getElementsByClassName('tab-content');
+				console.log(contents);
+				
+				for(let i = 0; i < contents.length; i++) {
+					contents[i].classList.add('hidden');	
+				}
+			}
+			function showTabContent(name) {
+				document.getElementById(name).classList.remove('hidden');
+			}
+		}
+		
+		function toggleRegistrationTabs(name) {
+			if (name === 'manual') {
+				if (isTabOpened(manualRegistrationTab)) {
+					closeTab(manualRegistrationTab);
+					return;
+				}
+				openTab(manualRegistrationTab);
+				closeTab(selfRegistrationTab);
+				return;
+			}
+			if (name === 'self') {
+				if (isTabOpened(selfRegistrationTab)) {
+					closeTab(selfRegistrationTab);
+					return;
+				}
+				openTab(selfRegistrationTab);
+				closeTab(manualRegistrationTab);
+				return;
+			}
+		}
+		function isTabOpened(aTab) {
+			return aTab.classList.contains('opened');
+		}
+		function openTab(aTab) {
+			aTab.classList.add('opened');
+			aTab.classList.remove('closed');
+		}
+		function closeTab(aTab) {
+			aTab.classList.add('closed');
+			aTab.classList.remove('opened');
+		}
+		function showHideTab(id) {
+			let el = document.getElementById(id);
+			console.log('el ' + el);
+			toggleClass(el, 'closed');
+			toggleClass(el, 'opened');
+		}
+		function toggleClass(el, aClass) {
+			el.classList.toggle(aClass);
+		}
+		function rowClicked(item) {
+			console.log('rowClicked ');
+			let content = item.nextElementSibling;
+			content.classList.toggle('opened');
+		}
+	</script>
+</body>
+
+</html>

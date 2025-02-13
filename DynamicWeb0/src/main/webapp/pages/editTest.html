@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Edit Test</title>
+	<link rel="stylesheet" href="../styles/buttons.css" />
+	<link rel="stylesheet" href="../styles/question.css" />
+	<link rel="stylesheet" href="../styles/mainContainer.css" />
+	<link rel="stylesheet" href="../styles/edit.css" />
+	<style>
+		/** {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			font-family: Inter, sans-serif;
+		}
+
+		.edit-header .button {
+			font-size: 12px;
+		}
+
+		.edit-header {
+			display: flex;
+			justify-content: space-between;
+			padding: 6px 8px;
+			background-color: #2e2e2e;
+			align-items: center;
+		}
+
+		.edit-header-center {
+			display: flex;
+			color: white;
+			font-size: 12px;
+			font-weight: 600;
+
+		}
+
+		.edit-header-left {
+			display: flex;
+
+		}
+
+		.edit-header-right {
+			display: flex;
+		}
+
+		.dropdown {
+			position: relative;
+		}
+
+		.dropdown:hover .edit-test-dropdown {
+			display: block;
+		}
+
+		.edit-test-dropdown {
+			display: none;
+			position: absolute;
+			right: 10px;
+			width: max-content;
+			padding: 8px;
+			border: 1px solid #dce1e5;
+			border-radius: 6px;
+			background-color: #fff;
+			list-style: none;
+		}
+
+		.edit-test-dropdown a {
+			text-decoration: none;
+			color: #000;
+		}
+
+		.edit-test-dropdown li {
+			margin-bottom: 9px;
+			font-size: 14px;
+		}
+
+		.edit-test-dropdown li:hover a {
+			color: #fb3311;
+		}
+
+		.float-right {
+			float: right;
+		}
+
+		.test-info {
+			display: flex;
+			justify-content: space-between;
+			color: #6a7680;
+			font-size: 12px;
+		}*/
+		.message {
+			padding: 15px 9px 15px 40px;
+			margin-bottom: 10px;
+			background-color: #e5fff2;
+			border-left: 3px solid #3cb27a;
+			background-image: url('../img/alert-confirmation.svg');
+			background-repeat: no-repeat;
+			background-position: 10px 15px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="edit-header">
+		<div class="edit-header-left">
+			<a class="button button-dark-grey" href="TestServlet">Exit Test Editor</a>
+		</div>
+		<div class="edit-header-center">Test Name</div>
+		<div class="edit-header-right">
+			<div class="dropdown">
+				<a class="button button-orange" href="#">Add Question</a>
+				<ul class="edit-test-dropdown">
+					<li><a href="AddQuestionToTest">Add a new Question</a></li>
+					<li><a href="#">Reuse from your question bank</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main-container">
+		<div class="message">Your Question was saved in your Test</div>
+		<div class="test-info">
+			<span class="">k fixed questions</span>
+			<span class="">Question Bank: n Questions</span>
+		</div>
+		<div class="test-intro">
+
+		</div>
+		<div class="question-container">
+			<div id="qc1" class="question-card">
+				<div class="question-card-item question-card-header">
+					<span class="qcard-header-name">Question 1</span> <span class="qcard-header-cat">Generic</span>
+					<span class="qcard-header-points">1.0</span>
+				</div>
+				<div class="question-info question-card-item">
+					<div class="question-text">Question text 1</div>
+					<div class="question-info-answers">
+						<table class="question-info-answer-table">
+
+
+
+
+							<tr class="answer correct-answer">
+								<td class="answer-letter">A</td>
+								<td class="answer-text">Answer 1</td>
+								<td class="correct-icon ">
+									<img class="correct-icon-img" src="img/correct.svg" />
+								</td>
+							</tr>
+
+
+							<tr class="answer correct-answer">
+								<td class="answer-letter">B</td>
+								<td class="answer-text">Answer 2</td>
+								<td class="correct-icon hidden">
+									<img class="correct-icon-img" src="img/correct.svg" />
+								</td>
+							</tr>
+
+
+							<tr class="answer correct-answer">
+								<td class="answer-letter">C</td>
+								<td class="answer-text">Answer 3</td>
+								<td class="correct-icon hidden">
+									<img class="correct-icon-img" src="img/correct.svg" />
+								</td>
+							</tr>
+
+						</table>
+					</div>
+				</div>
+				<div class="question-card-footer question-card-item">
+					<div class="qcard-actions">
+						<a class="qcard-action" href="javascript:void(0)" onclick="showHideAnswers('qc1')">Answers</a>
+						<a class="qcard-action" href="">Edit</a> <a class="qcard-action" href="javascript:void(0)"
+							onClick="showTests()">Used In</a>
+						<div class="float-right">
+							<a class="qcard-action" href="javascript:void(0)" onclick="removeFromTest()">Remove From
+								Test</a>
+						</div>
+					</div>
+					<div class="qcard-footer-delete hidden">
+						<p class="strong-text qcard-footer-delete-item">Are you sure
+							you want to permanently delete this Question?</p>
+						<p class="qcard-footer-delete-item">You will NOT be able to
+							restore this Question once deleted</p>
+						<div class="delete-buttons qcard-footer-delete-item">
+							<a class="button button-orange delete-button" href="">Permanently
+								Delete Question</a> <a class="button button-grey cancel-button"
+								href="javascript:void(0)" onclick="hideDelete()">Cancel</a>
+						</div>
+					</div>
+					<div class="qcard-footer-test hidden">
+						<div class="used-in-header no-test-msg">
+							<p>No Tests are currently using this Question.</p>
+							<img class="close" src="img/close.svg" />
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

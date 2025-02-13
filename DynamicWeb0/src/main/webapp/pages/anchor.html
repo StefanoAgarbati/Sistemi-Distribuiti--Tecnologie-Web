@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="list-container" class="list">
+		<div class="item">
+			<span class="item-description">Description</span>
+			<button class="action-button">btn</button>
+		</div>
+		<div class="item">
+			<span class="item-description">Description</span>
+			<button class="action-button">btn</button>
+		</div>
+		<script>
+			function createList(data) {
+				let container = createElement('div');
+				data.forEach(
+				dataItem => {
+					let item = createListItem(dataItem)
+					container.appendChild(item);
+					}
+				);
+				return container;
+			};
+			function createListItem(data) {
+				let div = document.createElement('div');
+				let desc = createElement('span');
+				let action = createElement('button');
+				
+				div.setAttribute('class', 'item');
+				desc.setAttribute('class','item-description');
+				action.setAttribute('class','action-button');
+				
+				desc.innerHTML = data.description;
+				action.innerHTML = data.action;
+				div.appendChild(desc);
+				div.appendChild(action);
+				return div;
+			};
+			function createElement(name) {
+				return document.createElement(name);
+			};
+		</script>
+		<script>
+			let data = [
+				{description: "Description1", action: "action1"},
+				{description: "Description2", action: "action2"},
+				{description: "Description3", action: "action3"}
+			];
+			
+			let list = document.getElementById('list-container');
+			list.appendChild(createList(data));
+		</script>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="provaStyle.css"/>
+<title>Prova</title>
+</head>
+<body>
+	<div>Prova load content</div>
+	<div id="content"></div>
+	<script>
+		let url = 'content.html';
+		let method = 'get';
+		let xhr = new XMLHttpRequest();
+		xhr.open(method, url);
+		xhr.onreadystatechange = function() {
+			console.log('ready state changed ' + xhr.readyState);
+			console.log('status ' + xhr.status);
+			if(xhr.readyState==4 && xhr.status==200) {
+				console.log("Response arrived")
+				let response = xhr.responseText;
+				console.log(response);
+				let el = document.getElementById('content');
+				el.innerHTML = response;
+			}
+		}
+		xhr.send();
+		console.log("Http request sent");
+		
+		
+	</script>
+</body>
+</html>

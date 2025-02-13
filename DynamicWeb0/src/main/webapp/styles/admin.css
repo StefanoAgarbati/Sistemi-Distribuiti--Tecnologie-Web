@@ -1,0 +1,27 @@
+.nav-bar {
+	background-color: black;
+	display: flex;
+}
+.nav-bar-left {
+	flex-grow: 9;
+}
+.nav-bar-right {
+	flex-grow: 1;
+	text-align: right;
+}
+.menu-item {
+	margin: 0px;
+	background-color: black;
+	border: 1px solid red;
+	cursor: pointer;
+	padding: 10px 14px;
+	color: white;
+	transition: 0.5s;
+}
+.menu-item-left {
+	float: left;
+}
+.menu-item:hover {
+	background-color: white;
+	color: black;
+}

@@ -1,0 +1,11 @@
+@charset "ISO-8859-1";
+
+.message {
+	padding: 15px 9px 15px 40px;
+	margin-bottom: 10px;
+	background-color: #e5fff2;
+	border-left: 3px solid #3cb27a;
+	background-image: url('../img/alert-confirmation.svg');
+	background-repeat: no-repeat;
+	background-position: 10px 15px;
+}

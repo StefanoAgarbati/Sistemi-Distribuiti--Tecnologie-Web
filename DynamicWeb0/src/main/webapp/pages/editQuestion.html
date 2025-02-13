@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Question</title>
+<link rel="stylesheet" href="../styles/header.css" />
+<link rel="stylesheet" href="../styles/buttons.css" />
+<link rel="stylesheet" href="../styles/edit.css" />
+<link rel="stylesheet" href="../styles/addQuestionToBank.css" />
+</head>
+<body>
+	<div class="edit-header">
+		<div class="edit-header-left">
+			<a class="button button-dark-grey"
+				href="#">Back</a>
+		</div>
+		<div class="edit-header-center">Test Name
+			/ Edit question
+		</div>
+		<div class="edit-header-right">
+			<button id="submit-button" class="button button-orange" type="button"
+				name="save" value="saveQuestion">Save</button>
+		</div>
+	</div>
+	<div class="container">
+		<div class="answers-container">
+			<form id="question-form" class="answer-form" method="post"
+				action="">
+				<div>
+					<h5 class="section-heading">Enter your question</h5>
+					<textarea id="question-text" class="text-area" name="question"
+						rows="6" cols="67"></textarea>
+				</div>
+				<div class="answers">
+					<div>
+						<h5 class="section-heading">Answers</h5>
+					</div>
+					<script>
+						function Answer(aName) {
+							this.text = '';
+							this.name = aName;
+							this.isCorrect = false;
+							
+							this.setText = (text) => {
+								this.text = text;
+							};
+							this.getText = () => {
+								return this.text;
+							};
+							this.setCorrect = (isCorrect) => {
+								this.isCorrect = isCorrect;
+							};
+							this.getCorrect = () => {
+								return this.isCorrect;
+							};
+							this.setName = (name) => {
+								this.name = name;
+							};
+							this.getName = () => {
+								return this.name;
+							};
+							this.setImpl = (anImpl) => {
+								this.impl = anImpl;
+							};
+							this.notify = (ev) => {
+								this.impl.update(ev);
+							}
+						}
+						function AnswerView(model) {
+							this.model = model;
+							this.model.setImpl(this);
+							this.baseEl = document.createElement('div');
+							this.baseEl.classList.add('answer');
+							this.answerTop = document.createElement('div');
+							this.baseEl.appendChild(answerTop);
+							this.nameEl = document.createElement('h5');
+							this.answerTop.appendChild(nameEl);
+							this.checkEl = document.createElement('input');
+							this.checkEl.setAttribute('id', 'answer'+this.model.getName() );
+							this.checkEl.setAttribute('type', 'checkbox');
+							this.checkEl.setAttribute('name', 'answer'+this.model.getName());
+							this.answerTop.appendChild(checkEl);
+							this.labelEl = document.createElement('label');
+							this.labelEl.setAttribute('for', 'answer'+this.model.getName());
+							this.labelEl.innerText = 'This answer option is correct';
+							this.answerTop.appendChild(labelEl);
+							this.textEl = doument.createElement('textarea');
+							this.textEl.setAttribute('id', 'answer'+model.getName()+'Text');
+							this.textEl.classList.add('text-area');
+							this.textEl.setAttribute('name', 'answer'+model.getName()+'Text');
+							this.textEl.setAttribute('rows', '3');
+							this.textEl.setAttribute('cols', '67');
+							this.baseEl.appendChild(textEl);
+							
+							this.update = (ev) => {
+								switch(ev.propertyName) {
+									case 'text':
+										updateText(ev.value);
+										break;
+									case 'correct':
+										updateCorrect(ev.value);
+										break;
+								}
+							};
+							this.updateText = (aText) => {
+								this.textEl.innerText = aText;
+							};
+							this.updateCorrect = (value) => {
+									this.checkEl.checked = value;
+								
+							};
+						}
+					</script>
+					<div class="answer">
+						<div class="answer-top">
+							<h5>(A)</h5>
+							<input id="answerA" type="checkbox" name="answerA"
+								value="correctA" /> <label for="answerA">This answer
+								option is correct</label>
+						</div>
+						<textarea id="answerAText" class="text-area" name="answerAText"
+							rows="3" cols="67"></textarea>
+					</div>
+					<div class="answer">
+						<div class="answer-top">
+							<h5>(B)</h5>
+							<input class="isCorrect" id="answerB" type="checkbox"
+								name="answerB" value="correctB" <label for="answerB">This
+								answer option is correct</label>
+						</div>
+						<textarea id="answerBText" class="text-area" name="answerBText"
+							rows="3" cols="67"></textarea>
+					</div>
+					<div class="answer">
+						<div class="answer-top">
+							<h5>(C)</h5>
+							<input id="answerC" type="checkbox" name="answerC"
+								value="correctC" /> <label for="answerC">This answer
+								option is correct</label>
+						</div>
+						<textarea id="answerCText" class="text-area" name="answerCText"
+							rows="3" cols="67"></textarea>
+					</div>
+					<div class="answer">
+						<div class="answer-top">
+							<h5>(D)</h5>
+							<input id="answerD" type="checkbox" name="answerD"
+								value="correctD" /> <label for="answerD">This answer
+								option is correct</label>
+						</div>
+						<textarea id="answerDText" class="text-area" name="answerDText"
+							rows="3" cols="67"></textarea>
+					</div>
+					<div id="addmore" class="rounded-box" onclick="showMoreAnswers()">
+						<span>Add more answer option</span>
+					</div>
+					<div id="moreanswers" class="more-answers closed">
+						<div class="answer">
+							<div class="answer-top">
+								<h5>(E)</h5>
+								<input id="answerE" type="checkbox" name="answerE"
+									value="correctE" /> <label for="answerE">This answer
+									option is correct</label>
+							</div>
+							<textarea id="answerEText" class="text-area" name="answerEText"
+								rows="3" cols="67"></textarea>
+						</div>
+						<div class="answer">
+							<div class="answer-top">
+								<h5>(F)</h5>
+								<input id="answerF" type="checkbox" name="answerF"
+									value="correctF" /> <label for="answerF">This answer
+									option is correct</label>
+							</div>
+							<textarea id="answerFText" class="text-area" name="answerFText"
+								rows="3" cols="67"></textarea>
+						</div>
+						<div class="answer">
+							<div class="answer-top">
+								<h5>(G)</h5>
+								<input id="answerG" type="checkbox" name="answerG"
+									value="correctG" /> <label for="answerG">This answer
+									option is correct</label>
+							</div>
+							<textarea id="answerGText" class="text-area" name="answerGText"
+								rows="3" cols="67"></textarea>
+						</div>
+						<div class="answer">
+							<div class="answer-top">
+								<h5>(H)</h5>
+								<input id="answerH" type="checkbox" name="answerH"
+									value="correctH" /> <label for="answerH">This answer
+									option is correct</label>
+							</div>
+							<textarea id="answerHText" class="text-area" name="answerHText"
+								rows="3" cols="67"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="settings">
+					<h5 class="section-heading">Question Settings</h5>
+					<div class="settings-content">
+						<div>
+							<h5 class="section-heading">Category</h5>
+							<p class="cat-expl">
+								- Categories help you <strong>analyze low-performing
+									areas</strong>in your Tests
+							</p>
+							<select id="category-name" class="category-select"
+								name="categoryId">
+								
+								<option value="1">Category 1</option>
+								<option value="2">Category 2</option>
+								<option value="3">Category 3</option>
+							</select>
+						</div>
+						<div class="hline"></div>
+						<div>
+							<h5 class="section-heading">Points available</h5>
+							<input class="input" type="text" name="points" value="1"
+								maxlength="5" size="5" />
+						</div>
+						<div class="hline"></div>
+						<div>
+							<h5 class="section-heading">Randomize answers</h5>
+							<input type="radio" checked="true" name="rand" value="no">
+							<label>No</label>
+							<div class="empty-row"></div>
+							<input type="radio" name="rand" value="yes" /> <label>Yes</label>
+						</div>
+						<div class="hline"></div>
+						<div>
+							<h5 class="section-heading">Answer selection</h5>
+							<input type="radio" checked="true" name="selection"
+								value="single"> <label>Single answer <span>-
+									only one answer option can be selected</span></label>
+							<div class="empty-row"></div>
+							<input type="radio" name="selection" value="multi" /> <label>Multiple
+								answers <span>- multiple answer option can be selected</span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="add-question-btn">
+					<button id="submit-button" class="button button-orange"
+						type="button" name="save" value="saveQuestion" onclick="">Save</button>
+					<a class="button button-white" href="questions"
+						onclick="onCancel()">Cancel</a>
+				</div>
+				<div class="errormsg closed">
+					<p class="error-text">You have not entered a question</p>
+				</div>
+				<div class="errormsg closed">
+					<p class="error-text">You must select the correct answer</p>
+				</div>
+				<div class="errormsg closed">
+					<p class="error-text">You must fill the first two boxes</p>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="scripts/addQuestionToBank.js"></script>
+</body>
+</html>

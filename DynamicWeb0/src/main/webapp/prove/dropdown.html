@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Dropdown menu button</title>
+<style>
+	* {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+	ul {
+		list-style-type: none;
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+	.menu-item {
+		display: inline-block;
+		padding: 8px 16px;
+		color: white;
+		font-size: 14px;
+		font-weight: 600;
+		border-radius: 4px;
+		border: 1px solid red;
+	}
+	.menu-item:hover {
+		background-color: white;
+		color: #2e3133;
+	}
+	.container {
+		padding: 10px 0;
+		width: 65%;
+		margin: auto;
+		font-family: Inter,sans-serif;
+		color: white;
+	}
+	.root-container {
+		background-color: #2e3133;
+	}
+	.drop-items {
+		display: block;
+		background-color: white;
+	}
+	.hidden {
+		display: none;
+	}
+</style>
+</head>
+<body>
+	<div class="root-container">
+		<div id="root" class="container">
+			<ul>
+				<li class="menu-item"><a href="#">Button1</a></li>
+				<li class="menu-item drop-item" >
+					<a href="#">Drop1</a>
+					<ul class="drop-items hidden">
+						<li class="submenu-item"><a href="#">sub1</a></li>
+						<li class="submenu-item"><a href="#">sub2</a></li>
+						<li class="submenu-item"><a href="#">sub3</a></li>
+					</ul>
+				</li>
+				<li class="menu-item drop-item">
+					<a href="#">Drop2</a>
+					<ul class="drop-items hidden">
+						<li class="submenu-item"><a href="#">sub1</a></li>
+						<li class="submenu-item"><a href="#">sub2</a></li>
+						<li class="submenu-item"><a href="#">sub3</a></li>
+						<li class="submenu-item"><a href="#">sub4</a></li>
+						<li class="submenu-item"><a href="#">sub5</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		let buttonConfig = {
+			text : "Che Button",
+			textColor : "#eee",
+			backgroundColor : "#ffffff",
+			rounded : true,
+			roundValue : "4px",
+			bordered : true,
+			borderData: {width: 1, type : "solid", color : "#FF0000"},
+			action : function() {
+				console.log('button clicked');
+			}
+		};
+		function createButton(root, config) {
+			let button = document.createElement('button');
+			button.innerHTML = config.text;
+			button.addEventListener('click', function() {
+				config.action();
+			});
+			button.style.color = config.textColor;
+			button.style.backgroundColor = config.backgroundColor;
+			if(config.rounded) {
+				button.style.borderRadius = config.roundValue;
+			}
+			if(config.bordered) {
+				button.style.border = config.borderData.width + "px" + " " + config.borderData.type + " " + config.borderData.color;
+			}
+			root.appendChild(button);
+		}
+		function main() {
+			/*let root = document.getElementById('root');
+			createButton(root, buttonConfig);*/
+			let items = document.getElementsByClassName('drop-item');
+			for(let i = 0; i < items.length; i++) {
+				items[i].addEventListener('click', function() {
+					console.log('clicked ' + items[i].className);
+					items[i].lastElementChild.classList.toggle('hidden');
+				});
+			}
+		}
+		main();
+		console.log(buttonConfig.text);
+	</script>
+</body>
+</html>

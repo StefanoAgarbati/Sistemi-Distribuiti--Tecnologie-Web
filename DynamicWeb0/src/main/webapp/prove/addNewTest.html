@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="addNewTest.css" />
+</head>
+
+<body>
+	<div>
+		<form class="container card" action="NewTest" method="post">
+			<div class="row">
+				<label class="col-100 label" for="testName">Test name</label>
+				<input id="testName" class="input" size="40" type="text" name="testName" />
+			</div>
+			<div class="row">
+				<label class="col-100 label">Category:</label>
+				<select class="selection" name="category">
+					<option value="generic">Generic</option>
+					<option value="math">Math</option>
+					<option value="physics">Physics</option>
+				</select>
+				<div class="empty-col-20"></div>
+				<a class="col-100" href="javascript:void(0)" onclick="openNewCategoryModal()">New category</a>
+			</div>
+			<div class="row">
+				<div class="col-100"></div>
+				<button class="button button-orange" type="submit">Start Adding Questions</button>
+			</div>
+		</form>
+	</div>
+	<div class="hidden">
+		<span>The test has been successfully added</span>
+	</div>
+	<div class="modal hidden">
+		<div class="modal-container">
+			<div class="modal-header">
+				<h3>Add New Category</h3>
+				<span class="close" onclick="closeNewCategoryModal()"></span>
+			</div>
+			<div class="modal-content">
+				<form class="table" action="" method="post">
+					<div class="row">
+						<label class="col-20">Category</label>
+						<input class="input col-40" type="text" />
+						<span class="padleft col-40">Maximum 30 Characters</span>
+					</div>
+					<div class="row">
+						<div class="emptycol20"></div>
+						<button class="button button-orange" type="submit">Create</button>
+						<div class="empty-col-10"></div>
+						<button class="button button-grey" type="button" onclick="closeNewCategoryModal">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="addNewTest.js"></script>
+</body>
+
+</html>

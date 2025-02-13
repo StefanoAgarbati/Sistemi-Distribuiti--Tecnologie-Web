@@ -1,0 +1,18 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+.add-new-container {
+	padding: 10px 15px;
+}
+.add-new-container a{
+	text-decoration: none;
+	padding: 5px 10px;
+	background: #059862;
+	color: #FFF;
+	float: right;
+}
+.hidden {
+	display: none;
+}

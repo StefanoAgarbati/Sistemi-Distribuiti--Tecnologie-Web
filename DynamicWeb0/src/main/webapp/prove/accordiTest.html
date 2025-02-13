@@ -1,0 +1,31 @@
+<style>
+	* {
+		border: 1px solid red;
+	}
+</style>
+<div class="test-list-item">
+	<div class="test-list-item-accordion" onclick="testListItemClicked(this)">
+		<div class="test-name-section">TestName</div>
+		<div class=" test-actions-section">
+			<a class="link" href"#">Assign</a>
+			<a class="link" href"#">Statistics</a>
+			<a class="button button-blue " href"#">Edit Test</a>
+		</div>
+	</div>
+	<div class="accordion-content">
+		<div class="assign-count"><span>Assigned 1 times</span></div>
+		<ul class="group-list">
+			<li class="group-list-row">
+				<div class="group-name"><span>GroupName</span></div>
+				<div class="group-row-actions">
+					<div class="status">
+						<div class="settings"><a href="#"><img src="img/setting.svg" /></a></div><span
+							class="status-info">Status</span>
+					</div>
+					<div class="button button-green results-btn"><a>Results</a></div>
+				</div>
+			</li>
+		</ul>
+		<div class="assign-test"><a class="link" href="#">Assign</a></div>
+	</div>
+</div>

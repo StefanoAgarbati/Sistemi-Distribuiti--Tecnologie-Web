@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Assign Test</title>
+	<link rel="stylesheet" href="../styles/mainContainer.css" />
+	<link rel="stylesheet" href="../styles/base.css" />
+	<link rel="stylesheet" href="../styles/buttons.css" />
+	<link rel="stylesheet" href="../styles/header.css" />
+	<style>
+		.assign {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 18px 24px;
+			border-bottom:1px solid #dce1e5;
+		}
+		.assign:hover {
+			background-color: #f6f6f8;
+		}
+		.card ul {
+			list-style-type: none;
+		}
+		.assign a {
+			text-decoration: none;
+			font-size: 14px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header">
+		<div class="header-top">
+			<div class="htleft">
+				<a href="#"> <img src="../img/logo.svg" />
+				</a>
+			</div>
+			<div class="htright">
+				<ul>
+					<li><a id="user" href="#">Hi FName LName</a></li>
+					<li>|</li>
+					<li><a id="logout" href="#">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu-container">
+			<div class="menu">
+				<div class="menu-item">
+					<a href="#">Dashboard</a>
+				</div>
+				<div class="menu-item menu-item-active">
+					<a href="TestServlet">Test</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">Link</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">Group</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">Help</a>
+				</div>
+				<div class="menu-item">
+					<a href="#">My Account</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main-container">
+		<p class="bold margin-bottom-20">Select a Test to continue</p>
+		<div class="card no-padding">
+				<ul class="">
+					<li class="assign">
+						<div class="">Test</div>
+						<a class="link link-orange" href="#">Assign to test</a>
+					</li>
+					<li class="assign">
+						<div class="">Test</div>
+						<a class="link link-orange" href="#">Assign to test</a>
+					</li>
+				</ul>
+		</div>
+	</div>
+	
+</body>
+
+</html>

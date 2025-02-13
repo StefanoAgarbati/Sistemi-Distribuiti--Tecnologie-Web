@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="styles/tabsContainer.css" />
+</head>
+
+<body>
+	<div id="header-container">
+		<script>
+			let el = document.createElement('p');
+			el.innerText = 'A test for testing a test';
+			document.body.appendChild(el);
+		</script>
+	</div>
+	<div id="tab-container"></div>
+	<p>Script test. Look at the console for details</p>
+	<button id="button">Button</button>
+	<div>
+		<script>
+			let ele = document.createElement('p');
+			ele.innerText = 'A test for testing a test';
+			document.body.appendChild(ele);
+		</script>
+	</div>
+	<div>Div1</div>
+	<script>
+		function MenuItem(name, link) {
+			let template = `
+				<div class="menu-item">
+					<a href="${link}">${name}</a>
+				</div>`;
+			
+		}
+		function Butto() {
+
+		}
+		class Button {
+			constructor(id) {
+				this.action = function () { };
+				this.button = document.getElementById(id);
+				this.button.addEventListener('click', this.doFire.bind(this));
+			}
+			setAction(anAction) {
+				this.action = anAction;
+				console.log(this.action + ' action setted');
+			}
+			doFire() {
+				this.action();
+				console.log('doFire');
+			}
+		}
+		class C1 {
+			constructor() {
+				this.callback = function () { };
+			}
+			setCallback(aCallback) {
+				this.callback = aCallback;
+				console.log('setting callback');
+			}
+			doFire() {
+				this.callback();
+			}
+		}
+		class C2 {
+			constructor(c1) {
+				this.c1 = c1;
+				console.log('c1 ' + this.c1);
+				this.c1.setCallback(this.aMethod);
+			}
+			aMethod() {
+				console.log('aMethod called in class C2');
+			}
+		}
+		class Callback {
+			constructor() {
+
+			}
+			doCall() {
+				console.log('doCall called in class Callback');
+			}
+		}
+		class Main {
+			constructor() {
+				this.c1 = new C1();
+				this.c2 = new C2(this.c1);
+				this.button = new Button('button');
+				this.button.setAction(this.c2.aMethod);
+				//this.c1.setCallback(this.c2.aMethod);
+
+
+			}
+		}
+		function main() {
+			let main = new Main();
+		}
+		function Prova() {
+			this.name = 'Gianni';
+
+			this.setName = (aName) => {
+				this.name = aName;
+			}
+			this.getName = () => {
+				return this.name;
+			};
+		}
+
+	</script>
+	<script src="fragments/tabsContainerComponent.js"></script>
+	<script src="fragments/tabsContainerComponent.js"></script>
+	<script>
+		function go() {
+			let root = document.getElementById('tab-container');
+			var props = {
+				tabs: [
+					{name: 'All Tests', active: false, link: 'TestServlet'},
+					{name: 'Question Bank', active: false, link: 'questions'},
+					{name: 'Categories', active: true, link: 'categories'},
+					{name: 'Files', active: false, link: '#'},
+					{name: 'Community', active: false, link: '#'},
+					{name: 'Statistics', active: false, link: '#'}
+				]
+			};
+			let menu = new TabContainerView(root, props);
+		}
+		go();
+	</script>
+</body>
+
+</html>

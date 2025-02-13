@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+	* {
+		box-sizing: border-box;
+		margin:0;
+		padding:0;
+	}	
+	ul {
+		text-decoration: none;
+	}
+	.menu-item {
+		cursor: pointer;
+		font-size: 20px;
+		font-weight: 600;
+		display: inline-block;
+		border-radius: 4px;
+		position: relative;
+		border: 1px solid black;
+	}
+	.menu-item:hover {
+		background-color: grey;
+	}
+	
+	.nav-bar {
+		background-color: lightgrey;
+	}
+	.submenu {
+		position: absolute;
+		
+		display: none;
+		z-index: 1;
+	}
+	.menu-item:hover .submenu {
+		display: block;
+	}
+	.relative {
+		position: relative;
+	}
+	.absolute{
+		position: absolute;
+		
+	}
+	.drop-content {
+		position: absolute;
+		display: none;
+	}
+	.menu-item:hover .drop-content {
+		display: block;
+	}
+	div {
+		border: 1px solid black;
+	}
+	.m-item-cnt {
+		display: inline-block;
+		padding: 8px 16px;	
+	}
+	.sub {
+		display: block;
+		padding: 8px 16px;	
+	}
+	.sub:hover {
+		background-color: lightgrey;
+	}
+</style>
+</head>
+<body>
+	<div id="nav-bar" class="nav-bar">
+		<div class="menu-item"><a class="m-item-cnt">item1</a></div>
+		<div class="menu-item"><a class="m-item-cnt">item2</a></div>
+		<div class="menu-item">
+			<a class="dropbtn m-item-cnt">item3</a>
+			<div class="drop-content">
+				<a class="sub">link1</a>
+				<a class="sub">link2</a>
+				<a class="sub">link3</a>
+			</div>
+		</div>
+	</div>
+	<script>
+		function Dropdown(title, subTitle1, subTitle2, rootId) {
+			let item = document.createElement('div');
+			let itemContent = document.createElement('a');
+			let sub1 = document.createElement('div');
+			itemContent.setAttribute('href', '#');
+			itemContent.innerHTML = title;
+			let root = document.getElementById(rootId);
+			item.appendChild(itemContent);
+			root.appendChild(item);
+		}
+		function main() {
+			let drop = new Dropdown('Dropdown', 'nav');
+		}
+	</script>
+</body>
+</html>

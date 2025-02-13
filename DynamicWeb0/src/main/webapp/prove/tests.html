@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>My Tests</title>
+<link rel="stylesheet" href="test.css"/>
+</head>
+<body>
+	<div>
+		<div class="header">
+			<div class="header-top">
+				<div class="htleft">
+					<a href="#">
+						<img src="../img/logo.svg"/>
+					</a>
+				</div>
+				<div class="htright">
+					<ul>
+						<li><a id="user" href="#">Hi username</a></li>
+						<li>|</li>
+						<li><a id="logout" href="#">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="menu-container">
+				<div class="menu">
+					<div class="menu-item">Dashboard</div>
+					<div class="menu-item"><a href="#">Test</a></div>
+					<div class="menu-item"><a href="#">Link</a></div>
+					<div class="menu-item"><a href="#">Group</a></div>
+					<div class="menu-item"><a href="#">Help</a></div>
+					<div class="menu-item"><a href="#">My Account</a></div>
+				</div>
+			</div>
+		</div>
+		<div class="main-container">
+			<div id="tabs-container" class="tabs-container">
+				<ul>
+					<li class="t-tab tabon">Tab</li>
+					<li class="t-tab taboff">Tab</li>
+					<li class="t-tab taboff">Tab</li>
+					<li class="t-tab taboff">Tab</li>
+					<li class="t-tab taboff">Tab</li>
+					<li class="t-tab taboff">Tab</li>
+				</ul>
+			</div>
+			<div class="test-list-container">
+				<div class="new-test-action">
+					<div class="search-filter-ctn">
+						<div class="hi">
+							<input class="input" type="search" name="search" placeholder="Search Test Name" />
+						</div>
+					</div>
+					<div class="new-test-btn-ctn"><a class="button button-orange new-test-btn" href="#">New Test</a></div>
+				</div>
+				<div class="test-list">
+					<div class="test-list-item">
+						<div class="test-list-item-accordion" onclick="testListItemClicked(this)">
+							<div class="test-name-section">TestName</div>
+							<div class="test-name-actions hidden">
+								<a class="link" href"#" onclick="console.log('assign clicked')">Assign</a>
+								<a class="link" href"#">Statistics</a>
+								<a class="button button-blue " href="provat.html">Edit Test</a>
+							</div>
+						</div>
+						<div class="accordion-content closed">
+							<div class="assign-count"><span>Assigned 1 times</span></div>
+							<ul class="group-list">
+								<li class="group-list-row">
+									<div class="group-name"><span>GroupName</span></div>
+									<div class="group-row-actions">
+										<div class="status">
+											<div class="settings"><a href="#"><img src="../img/setting.svg" /></a></div><span
+												class="status-info">Status</span>
+										</div>
+										<div class="button button-green results-btn"><a>Results</a></div>
+									</div>
+								</li>
+							</ul>
+							<div class="assign-test"><a class="link" href="#">Assign</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		
+		function TabGroup() {
+			let tabs = [];
+			
+			function addTab(aTab) {
+				tabs.push(aTab);
+			}
+			
+		}
+		function TabController() {
+			
+			let currentActive;
+			function onTabClick(tab) {
+				currentActive.deactivate();
+				activateTab(tab);
+			}
+		}
+		function Tab(id, aTabImpl) {
+			let name = id;
+			let isActive = false;
+			let group = aGroup;
+			let tabImpl = aTabImpl;
+			
+			function activate() {
+				isActive = true;
+				aTabImpl.activate();
+			}
+			function deactivate() {
+				isActive = false;
+				aTabImpl.deactivate();
+			}
+			function setGroup(aGroup) {
+				this.group = group;
+			}
+		}
+		function createTabMenu(rootId) {
+			let tabsName = ['All Tests','Question Bank','Categories','Files','Certificates','Community'];
+			let tabs = [];
+			let container = document.createElement('ul');
+			for(let i = 0; i < tabsName; i++) {
+				tabs[i] = document.createElement('li');
+				tabs[i].innerHTML = tabsName[i];
+				tabs[i].addEventListener('click', function() {
+					onClick();
+				});
+				container.appendChild(tabs[i]);
+			}
+			let rootEl = document.getElementById(rootId);
+			rootEl.appendChild(container);
+			
+			function onClick() {
+				
+			}
+		}
+		function main() {
+			
+		}
+	</script>
+	<script src="test.js"></script>
+</body>
+</html>
